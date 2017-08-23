@@ -1,5 +1,7 @@
 package ii_collections
 
+import com.google.common.collect.Lists
+import com.google.common.collect.Maps
 import util.TODO
 
 fun todoTask24(): Nothing = TODO(
@@ -11,9 +13,9 @@ fun todoTask24(): Nothing = TODO(
         references = { c: Collection<String> -> _24_JavaCode().doSomethingStrangeWithCollection(c) }
 )
 
-fun doSomethingStrangeWithCollection(collection: Collection<String>): Collection<String>? {
-    val groupsByLength = collection.groupBy { s -> todoTask24() }
 
-    return groupsByLength.values.maxBy { group -> todoTask24() }
+
+fun doSomethingStrangeWithCollection(collection: Collection<String>): Collection<String>? {
+    return collection.groupBy { s -> s.length }.values.maxBy { group -> group.size }
 }
 
